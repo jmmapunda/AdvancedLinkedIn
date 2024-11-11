@@ -1,4 +1,5 @@
 LinkedIn Advanced Automation for Quote Sharing with Pexels and Cloudinary
+
 This project automates the process of sharing motivational quotes with related images on LinkedIn. It fetches random quotes from ZenQuotes API, retrieves related images from Pexels API, uploads them to Cloudinary, overlays the quote text on the image, and then shares the image on LinkedIn using LinkedIn's API.
 
 Features
