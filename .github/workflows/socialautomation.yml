@@ -1,0 +1,41 @@
+name: Run Code Daily
+
+# Schedule to run at 8:00 AM UTC every day (adjust the time as needed)
+on:
+  schedule:
+    - cron: '0 8 * * *'  # 8:00 AM UTC every day
+  workflow_dispatch:      # Allows manual trigger of workflow if needed
+
+jobs:
+  run-daily:
+    runs-on: ubuntu-latest
+
+    # Environment variables for the job
+    env:
+      cloudname: ${{ secrets.cloudname }}
+      APIKEY: ${{ secrets.APIKEY }}
+      APISECRET: ${{ secrets.APISECRET }}
+      PEXELKEY: ${{ secrets.PEXELKEY }}
+      access_token: ${{ secrets.access_token }}
+      person_urn: ${{ secrets.person_urn }}
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      # Step 2: Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Use the appropriate Python version
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Step 4: Run the Python script
+      - name: Run script
+        run: python main.py
