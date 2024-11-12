@@ -3,7 +3,7 @@ name: Run Code Daily
 # Schedule to run at 5:00 AM UTC every day (adjust the time as needed)
 on:
   schedule:
-    - cron: '0 5 * * *'  # 5:00 AM UTC every day which is 08:00 AM my local time
+    - cron: '23 13 * * *'  # 5:00 AM UTC every day which is 08:00 AM my local time
   workflow_dispatch:      # Allows manual trigger of workflow if needed
 
 jobs:
