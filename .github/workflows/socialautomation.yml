@@ -1,9 +1,9 @@
 name: Run Code Daily
 
-# Schedule to run at 8:00 AM UTC every day (adjust the time as needed)
+# Schedule to run at 5:00 AM UTC every day (adjust the time as needed)
 on:
   schedule:
-    - cron: '0 8 * * *'  # 8:00 AM UTC every day
+    - cron: '0 5 * * *'  # 5:00 AM UTC every day which is 08:00 AM my local time
   workflow_dispatch:      # Allows manual trigger of workflow if needed
 
 jobs:
@@ -38,4 +38,4 @@ jobs:
 
       # Step 4: Run the Python script
       - name: Run script
-        run: python main.py
+        run: python linkedin.py
