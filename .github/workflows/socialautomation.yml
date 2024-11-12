@@ -3,7 +3,7 @@ name: Run Code Daily
 # Schedule to run at 5:00 AM UTC every day (adjust the time as needed)
 on:
   schedule:
-    - cron: '23 13 * * *'  # 5:00 AM UTC every day which is 08:00 AM my local time
+    - cron: '0 5 * * *'  # 5:00 AM UTC every day which is 08:00 AM my local time
   workflow_dispatch:      # Allows manual trigger of workflow if needed
 
 jobs:
@@ -28,7 +28,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'  # Use the appropriate Python version
+          python-version: '3.12'  # Use the appropriate Python version
 
       # Step 3: Install dependencies
       - name: Install dependencies
