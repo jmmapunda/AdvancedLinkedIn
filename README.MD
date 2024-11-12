@@ -71,9 +71,7 @@ json
 }
 
 3. Upload Image to Cloudinary:
-Once the image is selected, the script uploads the image to Cloudinary and overlays the quote text. Example image URL after overlay:
-
-https://res.cloudinary.com/your-cloud-name/image/upload/c_fill,w_800,h_1000,g_center,q_80/sample-quote-image.jpg
+Once the image is selected, the script uploads the image to Cloudinary and overlays the quote text.
 
 4. Post on LinkedIn:
 Finally, the script uses the LinkedIn API to post the image with the quote:
