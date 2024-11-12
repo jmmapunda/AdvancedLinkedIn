@@ -11,13 +11,13 @@ jobs:
     runs-on: windows-latest
 
     # Environment variables for the job
-    # env:
-    #   cloudname: ${{ secrets.cloudname }}
-    #   APIKEY: ${{ secrets.APIKEY }}
-    #   APISECRET: ${{ secrets.APISECRET }}
-    #   PEXELKEY: ${{ secrets.PEXELKEY }}
-    #   access_token: ${{ secrets.access_token }}
-    #   person_urn: ${{ secrets.person_urn }}
+    env:
+      cloudname: ${{ secrets.cloudname }}
+      APIKEY: ${{ secrets.APIKEY }}
+      APISECRET: ${{ secrets.APISECRET }}
+      PEXELKEY: ${{ secrets.PEXELKEY }}
+      access_token: ${{ secrets.access_token }}
+      person_urn: ${{ secrets.person_urn }}
 
     steps:
       # Step 1: Check out the repository
