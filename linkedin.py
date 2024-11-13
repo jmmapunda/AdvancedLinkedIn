@@ -6,7 +6,7 @@ import random
 import json
 from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 cloudname = os.getenv('cloudname')
 APIKEY = os.getenv('APIKEY')
 APISECRET = os.getenv('APISECRET')
