@@ -14,9 +14,6 @@ PEXELKEY = os.getenv('PEXELKEY')
 access_token = os.getenv('access_token')
 person_urn = os.getenv('person_urn')
 
-print(f"cloudname: {cloudname}\napikey: {APIKEY}\napisecret: {APISECRET}\npexelkey: {PEXELKEY}\naccess token: {access_token}\npersonurn: {person_urn}")
-
-
 # URL for ZenQuotes API
 url = "https://zenquotes.io/api/random"
 

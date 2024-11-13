@@ -38,6 +38,8 @@ Usage:
 
 4. Create a LinkedIn Post: The image with the overlayed quote is uploaded to LinkedIn via LinkedIn's API. The post includes the quote text and the author’s name.
 
+5. Automate all the above process without Human interation with the use of GitHub Actions. The code will run everyday at 0500 UTC.
+
 Script Execution
 To run the script, simply execute the Python file:
 
