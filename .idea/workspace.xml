@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7bda8ad1-7723-49fd-b619-78e2a82fa956" name="Changes" comment="Best Version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linkedin.py" beforeDir="false" afterPath="$PROJECT_DIR$/linkedin.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +77,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731342217245</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Best Version">
+      <option name="closed" value="true" />
+      <created>1731445146788</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731445146788</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
