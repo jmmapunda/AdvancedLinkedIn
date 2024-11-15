@@ -47,7 +47,7 @@ url = "https://api.pexels.com/v1/search"
 # Define parameters
 params = {
     "query": search_image,  # The search term (can be anything)
-    "per_page": 10,  # Number of results per page (maximum is 80)
+    "per_page": 50,  # Number of results per page (maximum is 80)
     "page": 1  # The page number (for pagination)
     }
 
