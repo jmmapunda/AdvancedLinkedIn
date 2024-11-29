@@ -18,6 +18,10 @@ jobs:
       PEXELKEY: ${{ secrets.PEXELKEY }}
       access_token: ${{ secrets.access_token }}
       person_urn: ${{ secrets.person_urn }}
+      x_access_token: ${{ secrets.x_access_token }}
+      x_access_token_secret: ${{ secrets.x_access_token_secret }}
+      x_consumer_key: ${{ secrets.x_consumer_key }}
+      x_consumer_secret: ${{ secrets.x_consumer_secret }}
 
     steps:
       # Step 1: Check out the repository

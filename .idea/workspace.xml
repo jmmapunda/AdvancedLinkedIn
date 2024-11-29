@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7bda8ad1-7723-49fd-b619-78e2a82fa956" name="Changes" comment="with x 1" />
+    <list default="true" id="7bda8ad1-7723-49fd-b619-78e2a82fa956" name="Changes" comment="with x 1">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/socialautomation.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/socialautomation.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,7 +137,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732859989099</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="with x 1">
+      <option name="closed" value="true" />
+      <created>1732860524276</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1732860524276</updated>
+    </task>
+    <task id="LOCAL-00010" summary="with x 1">
+      <option name="closed" value="true" />
+      <created>1732860613466</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1732860613466</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
