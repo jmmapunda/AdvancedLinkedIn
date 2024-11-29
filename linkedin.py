@@ -1,18 +1,26 @@
 import os
+from datetime import datetime
+
 import cloudinary.uploader
 from cloudinary.utils import cloudinary_url
 import requests
 import random
 import json
+from requests_oauthlib import OAuth1Session
 from dotenv import load_dotenv
 
-# load_dotenv() #This line is commented to allow GitHub actions to work smooth, but on local machine you need it.
+load_dotenv() #This line is commented to allow GitHub actions to work smooth, but on local machine you need it.
 cloudname = os.getenv('cloudname')
 APIKEY = os.getenv('APIKEY')
 APISECRET = os.getenv('APISECRET')
 PEXELKEY = os.getenv('PEXELKEY')
 access_token = os.getenv('access_token')
 person_urn = os.getenv('person_urn')
+x_access_token = os.getenv('x_access_token')
+x_access_token_secret = os.getenv('x_access_token_secret')
+screen_name = "johncaptain007"
+x_consumer_key = os.getenv('x_consumer_key')
+x_consumer_secret = os.getenv('x_consumer_secret')
 
 # URL for ZenQuotes API
 url = "https://zenquotes.io/api/random"
@@ -229,3 +237,51 @@ if response.status_code == 201:
 else:
     print(f"Failed to create post: {response.status_code}")
     print(response.json())  # Print the full response for debugging
+
+########### X post
+# Make the request using saved tokens
+oauth = OAuth1Session(
+    x_consumer_key,
+    client_secret=x_consumer_secret,
+    resource_owner_key=x_access_token,
+    resource_owner_secret=x_access_token_secret,
+)
+
+#  Upload media to X
+media_upload_url = "https://upload.twitter.com/1.1/media/upload.json"
+files = {"media": image_response.content}
+response = oauth.post(media_upload_url, files=files)
+print(response)
+media_id = response.json()["media_id"]
+print("Uploaded media with ID:", media_id)
+
+# Payload for the tweet
+if datetime.now().weekday() == 1 or 4: # on tuesday and friday will post tweet with image.
+    payload = {
+        "text": post_quote,
+        "media": {
+            "media_ids": [str(media_id)]
+            }
+        }
+else:
+    payload = {
+        "text": post_quote,
+        }
+
+# Sending the tweet
+response = oauth.post(
+    "https://api.twitter.com/2/tweets",
+    json=payload,
+)
+
+if response.status_code != 201:
+    raise Exception(
+        "Request returned an error: {} {}".format(response.status_code, response.text)
+    )
+
+print("Response code: {}".format(response.status_code))
+
+# Print the response
+json_response = response.json()
+print(json.dumps(json_response['data']['id'], indent=4, sort_keys=True))
+
