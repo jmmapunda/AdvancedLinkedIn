@@ -229,7 +229,7 @@ headers = {
     "X-Restli-Protocol-Version": "2.0.0"
     }
 
-response = requests.post(url, json=post_json, headers=headers)
+# response = requests.post(url, json=post_json, headers=headers)
 
 # Check the response status
 if response.status_code == 201:
