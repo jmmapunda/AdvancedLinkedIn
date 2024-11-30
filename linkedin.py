@@ -247,16 +247,17 @@ oauth = OAuth1Session(
     resource_owner_secret=x_access_token_secret,
 )
 
-#  Upload media to X
-media_upload_url = "https://upload.twitter.com/1.1/media/upload.json"
-files = {"media": image_response.content}
-response = oauth.post(media_upload_url, files=files)
-print(response)
-media_id = response.json()["media_id"]
-print("Uploaded media with ID:", media_id)
-
 # Payload for the tweet
 if datetime.now().weekday() == 1 or 4: # on tuesday and friday will post tweet with image.
+    #  Upload media to X
+    media_upload_url = "https://upload.twitter.com/1.1/media/upload.json"
+    files = {"media": image_response.content}
+    response = oauth.post(media_upload_url, files=files)
+    print(response)
+    media_id = response.json()["media_id"]
+    print("Uploaded media with ID:", media_id)
+
+    
     payload = {
         "text": post_quote,
         "media": {
