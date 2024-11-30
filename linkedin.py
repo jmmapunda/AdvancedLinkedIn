@@ -1,6 +1,5 @@
 import os
 from datetime import datetime
-
 import cloudinary.uploader
 from cloudinary.utils import cloudinary_url
 import requests
@@ -33,7 +32,7 @@ if response.status_code == 200:
     data = response.json()
     quote = data[0]['q']  # Quote text
     author = data[0]['a']  # Author's name
-    if author == 'unknown':
+    if author.lower() == 'unknown':
         author = 'Me'
 quote = f'"{quote}"'  # Add quotes around the quote
 author = f'"{author}"'
@@ -245,10 +244,10 @@ oauth = OAuth1Session(
     client_secret=x_consumer_secret,
     resource_owner_key=x_access_token,
     resource_owner_secret=x_access_token_secret,
-)
+    )
 
 # Payload for the tweet
-if datetime.now().weekday() == 1 or 4: # on tuesday and friday will post tweet with image.
+if datetime.now().weekday() in {1, 4}:  # on tuesday and friday will post tweet with image.
     #  Upload media to X
     media_upload_url = "https://upload.twitter.com/1.1/media/upload.json"
     files = {"media": image_response.content}
@@ -256,8 +255,6 @@ if datetime.now().weekday() == 1 or 4: # on tuesday and friday will post tweet w
     print(response)
     media_id = response.json()["media_id"]
     print("Uploaded media with ID:", media_id)
-
-    
     payload = {
         "text": post_quote,
         "media": {
