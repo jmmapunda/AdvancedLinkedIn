@@ -48,6 +48,34 @@ imagekeywords = [
     "Mountains", "River", "Sunset", "Trees", "Hills", "Valley", "Beach", "Sand",
     "Winter", "Summer", "Rain", "Bloom", "Lightning", "Dew", "Vine", "Fields", "Wilderness"]
 search_image = random.choice(imagekeywords)
+
+hashtags_data = [
+    # Green Energy & Sustainability
+    "#GreenEnergy", "#RenewableEnergy", "#SustainableLiving", "#CleanEnergy",
+    "#ClimateAction", "#SolarPower", "#WindEnergy", "#EnergyEfficiency", "#FutureOfEnergy",
+    "#Sustainability", "#EcoFriendly", "#CarbonNeutral", "#NetZero", "#Decarbonization",
+    "#EnvironmentalImpact", "#EnergyTransition", "#GreenTech", "#SustainableDevelopment",
+
+    # Quotes & Inspiration
+    "#Motivation", "#SuccessQuotes", "#LeadershipQuotes", "#DailyInspiration",
+    "#GrowthMindset", "#EntrepreneurMindset", "#MindsetMatters", "#PositiveVibes",
+    "#SelfGrowth", "#PersonalDevelopment", "#Inspiration", "#LifeLessons", "#Wisdom",
+
+    # Procurement & Supply Chain
+    "#Procurement", "#SupplyChainManagement", "#Logistics", "#StrategicSourcing",
+    "#BusinessOperations", "#CostManagement", "#VendorManagement", "#ContractManagement",
+    "#SupplyChainExcellence", "#ProcurementStrategy", "#Purchasing", "#EProcurement",
+    "#SupplierDiversity", "#Sourcing", "#ProcurementLeadership",
+
+    # Aviation & Petroleum Industry
+    "#AviationIndustry", "#PetroleumIndustry", "#FuelManagement", "#OilAndGas",
+    "#AviationFuel", "#EnergySector", "#Aerospace", "#JetFuel", "#AviationSustainability",
+    "#EnergyMarkets", "#CrudeOil", "#Refining", "#EnergyEconomy", "#AirlineIndustry",
+    "#SustainableAviationFuel", "#GasIndustry", "#OffshoreDrilling"
+    ]
+
+hashtags = ' '.join(random.sample(hashtags_data, 3))
+
 # Endpoint for searching photos
 url = "https://api.pexels.com/v1/search"
 
@@ -191,7 +219,7 @@ else:
     print("Failed to download image from the URL.")
 
 # Step 3: Create the post
-post_quote = f"{quote},\n{author}"
+post_quote = f"{quote},\n{author}\n\n{hashtags}"
 # Create the post JSON with media
 post_json = {
     "author": person_urn,
