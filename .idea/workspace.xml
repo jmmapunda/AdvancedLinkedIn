@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7bda8ad1-7723-49fd-b619-78e2a82fa956" name="Changes" comment="with x 2">
+    <list default="true" id="7bda8ad1-7723-49fd-b619-78e2a82fa956" name="Changes" comment="with x 2&#10;with #hashtags">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/linkedin.py" beforeDir="false" afterPath="$PROJECT_DIR$/linkedin.py" afterDir="false" />
     </list>
@@ -169,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732972736343</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="with x 2&#10;with #hashtags">
+      <option name="closed" value="true" />
+      <created>1743163916388</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1743163916388</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -188,6 +196,7 @@
     <MESSAGE value="Final" />
     <MESSAGE value="with x 1" />
     <MESSAGE value="with x 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="with x 2" />
+    <MESSAGE value="with x 2&#10;with #hashtags" />
+    <option name="LAST_COMMIT_MESSAGE" value="with x 2&#10;with #hashtags" />
   </component>
 </project>

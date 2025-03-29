@@ -154,7 +154,7 @@ text_overlay_url, _ = cloudinary_url(
                 'text_align': "center"
                 # "line_breaks": True,
                 },
-            "color": "black",
+            "color": '#000000',  #true black color
             "gravity": "center",  # Center the text
             "x": 10,  # Horizontal padding
             "y": 10,  # Vertical padding
