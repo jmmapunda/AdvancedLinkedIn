@@ -119,7 +119,20 @@ upload_result = cloudinary.uploader.upload(image_to_edit, public_id="quotes")
 print("Uploaded Image URL:", upload_result["secure_url"])
 
 # Set the maximum number of words per line
-max_words_per_line = 6  # Example: 6 words per line (adjust based on your layout)
+quote2 = quote.split()
+
+total_chars = 0
+result = []
+
+for word in quote2:
+    word_length = len(word)
+    if total_chars + word_length > 35:
+        break
+    result.append(word)
+    total_chars += word_length
+
+max_words_per_line = len(result)  # Example: 6 words per line (adjust based on your layout)
+print(f'Number of words {max_words_per_line}')
 
 # Split the quote into a list of words
 words = quote.split()
