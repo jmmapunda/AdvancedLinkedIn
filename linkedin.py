@@ -1,4 +1,5 @@
 import os
+import time
 from datetime import datetime
 import cloudinary.uploader
 from cloudinary.utils import cloudinary_url
@@ -8,7 +9,7 @@ import json
 from requests_oauthlib import OAuth1Session
 from dotenv import load_dotenv
 
-# load_dotenv() #This line is commented to allow GitHub actions to work smooth, but on local machine you need it.
+load_dotenv() #This line is commented to allow GitHub actions to work smooth, but on local machine you need it.
 cloudname = os.getenv('cloudname')
 APIKEY = os.getenv('APIKEY')
 APISECRET = os.getenv('APISECRET')
@@ -24,16 +25,31 @@ x_consumer_secret = os.getenv('x_consumer_secret')
 # URL for ZenQuotes API
 url = "https://zenquotes.io/api/random"
 
-# Make a GET request to fetch the random quote of the day
-response = requests.get(url)
+max_retries = 3
+delay_between_retries = 60  # seconds
 
-# Check if the request was successful
-if response.status_code == 200:
-    data = response.json()
-    quote = data[0]['q']  # Quote text
-    author = data[0]['a']  # Author's name
-    if author.lower() == 'unknown':
-        author = 'Me'
+for attempt in range(max_retries):
+    try:
+        response = requests.get(url, timeout=5)
+
+        if response.status_code == 200:
+            data = response.json()
+            quote = data[0]['q']
+            author = data[0]['a']
+            if author.lower() == 'unknown':
+                author = 'Me'
+            break  # Exit loop on success
+        else:
+            print(f"Attempt {attempt+1}: Error {response.status_code} - {response.text}")
+
+    except requests.exceptions.RequestException as e:
+        print(f"Attempt {attempt+1}: Request failed - {e}")
+
+    time.sleep(delay_between_retries)
+else:
+    print("Failed to fetch quote after multiple attempts.")
+    exit()
+
 quote = f'"{quote}"'  # Add quotes around the quote
 author = f'"{author}"'
 # Print the quote and author
