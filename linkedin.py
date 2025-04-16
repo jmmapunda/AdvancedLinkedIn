@@ -9,7 +9,7 @@ import json
 from requests_oauthlib import OAuth1Session
 from dotenv import load_dotenv
 
-load_dotenv() #This line is commented to allow GitHub actions to work smooth, but on local machine you need it.
+# load_dotenv() #This line is commented to allow GitHub actions to work smooth, but on local machine you need it.
 cloudname = os.getenv('cloudname')
 APIKEY = os.getenv('APIKEY')
 APISECRET = os.getenv('APISECRET')

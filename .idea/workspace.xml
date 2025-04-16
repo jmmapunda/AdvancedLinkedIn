@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7bda8ad1-7723-49fd-b619-78e2a82fa956" name="Changes" comment="with x 2&#10;with #hashtags">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkedin.py" beforeDir="false" afterPath="$PROJECT_DIR$/linkedin.py" afterDir="false" />
-    </list>
+    <list default="true" id="7bda8ad1-7723-49fd-b619-78e2a82fa956" name="Changes" comment="with x 2&#10;with #hashtags" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -193,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744634341887</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="with x 2&#10;with #hashtags">
+      <option name="closed" value="true" />
+      <created>1744760431910</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1744760431910</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
