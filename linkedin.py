@@ -147,7 +147,7 @@ for word in quote2:
     result.append(word)
     total_chars += word_length
 
-max_words_per_line = len(result)  # Example: 6 words per line (adjust based on your layout)
+max_words_per_line = len(result) - 1  # Example: 6 words per line (adjust based on your layout)
 print(f'Number of words {max_words_per_line}')
 
 # Split the quote into a list of words
