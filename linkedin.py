@@ -9,7 +9,7 @@ import json
 from requests_oauthlib import OAuth1Session
 from dotenv import load_dotenv
 
-# load_dotenv() #This line is commented to allow GitHub actions to work smooth, but on local machine you need it.
+load_dotenv() #This line is commented to allow GitHub actions to work smooth, but on local machine you need it.
 cloudname = os.getenv('cloudname')
 APIKEY = os.getenv('APIKEY')
 APISECRET = os.getenv('APISECRET')
@@ -290,38 +290,51 @@ response = requests.post(url, json=post_json, headers=headers)
 # Check the response status
 if response.status_code == 201:
     print("Post created successfully!")
+
+    post_urn = response.headers.get("x-restli-id")
+
+    if post_urn:
+        post_id = post_urn.split(":")[-1]
+        post_url = f"https://www.linkedin.com/feed/update/{post_urn}"
+        print("Post URL:", post_url)
+    else:
+        print("Post created but no post URN found in headers")
 else:
     print(f"Failed to create post: {response.status_code}")
     print(response.json())  # Print the full response for debugging
 
+try:
 ########### X post
-# Make the request using saved tokens
-oauth = OAuth1Session(
-    x_consumer_key,
-    client_secret=x_consumer_secret,
-    resource_owner_key=x_access_token,
-    resource_owner_secret=x_access_token_secret,
+    # Make the request using saved tokens
+    oauth = OAuth1Session(
+        x_consumer_key,
+        client_secret=x_consumer_secret,
+        resource_owner_key=x_access_token,
+        resource_owner_secret=x_access_token_secret,
     )
 
 # Payload for the tweet
-if datetime.now().weekday() in {1, 4}:  # on tuesday and friday will post tweet with image.
-    #  Upload media to X
-    media_upload_url = "https://upload.twitter.com/1.1/media/upload.json"
-    files = {"media": image_response.content}
-    response = oauth.post(media_upload_url, files=files)
-    print(response)
-    media_id = response.json()["media_id"]
-    print("Uploaded media with ID:", media_id)
-    payload = {
-        "text": post_quote,
-        "media": {
-            "media_ids": [str(media_id)]
+
+    if datetime.now().weekday() in {1, 4}:  # on tuesday and friday will post tweet with image.
+        #  Upload media to X
+        media_upload_url = "https://upload.twitter.com/1.1/media/upload.json"
+        files = {"media": image_response.content}
+        response = oauth.post(media_upload_url, files=files)
+        print(response)
+        media_id = response.json()["media_id"]
+        print("Uploaded media with ID:", media_id)
+        payload = {
+            "text": post_quote,
+            "media": {
+                "media_ids": [str(media_id)]
+                }
             }
-        }
-else:
-    payload = {
-        "text": post_quote,
-        }
+    else:
+        payload = {
+            "text": post_quote,
+            }
+except Exception as e:
+    print("Failed to post X:", e)
 
 # Sending the tweet
 response = oauth.post(
