@@ -9,6 +9,14 @@ import json
 from requests_oauthlib import OAuth1Session
 from dotenv import load_dotenv
 
+
+res = requests.get("http://ip-api.com/json/").json()
+
+print("IP:", res.get("query"))
+print("Country:", res.get("country"))
+print("City:", res.get("city"))
+
+
 load_dotenv() #This line is commented to allow GitHub actions to work smooth, but on local machine you need it.
 cloudname = os.getenv('cloudname')
 APIKEY = os.getenv('APIKEY')
